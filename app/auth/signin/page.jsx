@@ -16,7 +16,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useRouter } from 'next/navigation'
 import { useToast } from "@/components/ui/use-toast"
-import { useSearchParams } from 'next/navigation'
 import { getUser } from "../actions"
 import { compare } from "bcryptjs"
 import { useState } from "react"
@@ -46,9 +45,7 @@ const FormSchema = z.object({
 
 export default function SignIn({}) {
     const router = useRouter()
-    const searchParams = useSearchParams()
     const [loading,setLoading] = useState(false)
-    console.log(searchParams)
     const {toast} = useToast()
     const form = useForm({
         resolver: zodResolver(FormSchema),
